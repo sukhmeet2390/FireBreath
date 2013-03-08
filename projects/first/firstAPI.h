@@ -33,6 +33,7 @@ public:
     {
         registerMethod("echo",      make_method(this, &firstAPI::echo));
         registerMethod("testEvent", make_method(this, &firstAPI::testEvent));
+		registerMethod("add",      make_method(this, &firstAPI::add));
         
         // Read-write property
         registerProperty("testString",
@@ -60,6 +61,7 @@ public:
     // Read/Write property ${PROPERTY.ident}
     std::string get_testString();
     void set_testString(const std::string& val);
+	int add(int a, int b);
 
     // Read-only property ${PROPERTY.ident}
     std::string get_version();

@@ -64,3 +64,5 @@ void firstAPI::testEvent()
 {
     fire_test();
 }
+
+int firstAPI :: add(int a, int b){ return a+ b;}
