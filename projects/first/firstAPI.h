@@ -35,8 +35,8 @@ public:
         registerMethod("testEvent", make_method(this, &firstAPI::testEvent));
 		registerMethod("add",		make_method(this, &firstAPI::add));
 		
-		
-		
+		registerMethod("printconsole" , make_method(this, &firstAPI::printconsole));
+
         registerProperty("mystring", make_property(this, &firstAPI::get_mystring));
         // Read-write property
         registerProperty("testString",
@@ -69,7 +69,7 @@ public:
 	int add(int a, int b);
 	std::string get_mystring();
 	//void set_master(const std:: string& name);
-
+	
     // Read-only property ${PROPERTY.ident}
     std::string get_version();
 
@@ -82,7 +82,7 @@ public:
 
     // Method test-event
     void testEvent();
-
+	void printconsole();
 protected : 
 	std::string mystring;
 private:

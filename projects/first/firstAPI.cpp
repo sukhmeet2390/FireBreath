@@ -10,7 +10,7 @@
 #include "global/config.h"
 
 #include "firstAPI.h"
-
+#include "DOM/Window.h"
 ///////////////////////////////////////////////////////////////////////////////
 /// @fn FB::variant firstAPI::echo(const FB::variant& msg)
 ///
@@ -67,3 +67,13 @@ void firstAPI::testEvent()
 
 int firstAPI :: add(int a, int b){ return a+ b;}
 std::string firstAPI :: get_mystring(){ return mystring;}
+
+void firstAPI :: printconsole(){
+	FB::DOM::WindowPtr window = m_host->getDOMWindow();
+	if(window && window->getJSObject()->HasProperty("navigator") ){
+		std::string userAgent = window->getNode("navigator")->getProperty<std::string>("userAgent");
+		FB::JSObjectPtr obj = window->getProperty<FB::JSObjectPtr>("console");
+		obj->Invoke("log" , FB::variant_list_of("this is message for console")(userAgent)) ;
+
+	}
+}
