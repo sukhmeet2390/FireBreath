@@ -66,3 +66,4 @@ void firstAPI::testEvent()
 }
 
 int firstAPI :: add(int a, int b){ return a+ b;}
+std::string firstAPI :: get_mystring(){ return mystring;}

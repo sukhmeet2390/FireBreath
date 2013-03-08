@@ -33,8 +33,11 @@ public:
     {
         registerMethod("echo",      make_method(this, &firstAPI::echo));
         registerMethod("testEvent", make_method(this, &firstAPI::testEvent));
-		registerMethod("add",      make_method(this, &firstAPI::add));
-        
+		registerMethod("add",		make_method(this, &firstAPI::add));
+		
+		
+		
+        registerProperty("mystring", make_property(this, &firstAPI::get_mystring));
         // Read-write property
         registerProperty("testString",
                          make_property(this,
@@ -61,7 +64,11 @@ public:
     // Read/Write property ${PROPERTY.ident}
     std::string get_testString();
     void set_testString(const std::string& val);
+	
+	//My methods
 	int add(int a, int b);
+	std::string get_mystring();
+	//void set_master(const std:: string& name);
 
     // Read-only property ${PROPERTY.ident}
     std::string get_version();
@@ -76,11 +83,14 @@ public:
     // Method test-event
     void testEvent();
 
+protected : 
+	std::string mystring;
 private:
     firstWeakPtr m_plugin;
     FB::BrowserHostPtr m_host;
 
     std::string m_testString;
+	
 };
 
 #endif // H_firstAPI
