@@ -1,0 +1,9 @@
+{
+  "name": "first",
+  "version": "${FBSTRING_PLUGIN_VERSION}",
+  "description": "first plugin",
+
+	"plugins": [
+    { "path": "npfirst.dll", "public": true }
+  ]
+}
